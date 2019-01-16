@@ -18,9 +18,11 @@ enum custom_keycodes {
 #define KC_LOWR LOWER
 #define KC_RASE RAISE
 #define KC_S_ES LSFT_T(KC_ESC) //ESC(tap) or Shift
+#define KC_S_BS LSFT_T(KC_BSPC) //BSPC(tap) or Shift
 #define KC_CDSP LGUI(KC_SPC) //CMD + SPACE
 #define KC_C_BS RCTL_T(KC_BSPC) // Backspace(tap) or CTRL
 #define KC_G_SP RGUI_T(KC_SPC) // space(tap) or GUI
+#define KC_A_EN LALT_T(KC_ENT) // Enter(tap) or LALT
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -32,23 +34,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      LCTL, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSFT, Z  , X  , C  , V  , B  , DEL,      ENT, N  , M  ,COMM,DOT ,SLSH,RALT,
+     LGUI, Z  , X  , C  , V  , B  , DEL,      ENT, N  , M  ,COMM,DOT ,SLSH,A_EN,
   //`----+----+----+--+-+----+----+----/    \----+----+----+-+--+----+----+----'
-                      LOWR, S_ES,G_SP,         ENT ,C_BS,RASE
+                      LOWR, S_BS, SPC,         ENT ,C_BS,RASE
   //                  `----+----+----'        `----+----+----'
   ),
 
   [_LOWER] = LAYOUT_kc(
   //,----+----+----+--+-+----+----.              ,----+----+-+--+----+----+----.
-     KANA,    ,    ,    ,    ,    ,                P7 , P8 , P9 ,PMNS,EQL ,NLCK,
+     ESC ,    ,    ,    ,    ,    ,                P7 , P8 , P9 ,PMNS,EQL ,NLCK,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     LGUI,    ,    ,    ,    ,    ,                P4 , P5 , P6 ,PPLS,LBRC,RBRC,
+     LGUI,    ,    ,    ,    ,    ,                P7 , P8 , P9 ,PPLS,LBRC,RBRC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,VOLD,VOLU,MUTE,FIND,    ,                P1 , P2 , P3 ,PCMM,MINS,    ,
+     LCTL,VOLD,VOLU,MUTE,FIND,    ,                P4 , P5 , P6 ,PCMM,MINS,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSFT,    ,    ,    ,    ,    ,    ,      ENT, P0 ,PDOT,    ,PEQL,    ,    ,
+     LSFT,    ,    ,    ,    ,    ,    ,      ENT, P1 , P2 , P3 ,PDOT,    ,RALT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+-+--+----+----+----'
-                          ,TRNS,SPC ,         ENT ,    ,
+                          ,TRNS,SPC ,         ENT , P0 ,
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -58,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,                   ,    ,    ,PLUS,LCBR,RCBR,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,LEFT, UP ,DOWN,RGHT,    ,               LEFT, UP ,DOWN,RGHT,    ,    ,
+         ,LEFT, UP ,DOWN,RGHT,    ,               LEFT,DOWN, UP ,RGHT,    ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,    ,         ,    ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+-+--+----+----+----'
